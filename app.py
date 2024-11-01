@@ -36,13 +36,6 @@ import MySQLdb.cursors
 app = Flask(__name__)
 
 
-app.config['MYSQL_HOST'] = "localhost"
-app.config['MYSQL_USER'] = "root"
-app.config['MYSQL_PASSWORD'] = "123456"
-app.config['MYSQL_DB'] ="hackuser"
-
-# init MYSQL
-mysql = MySQL(app)
 
 
 # import model
@@ -51,13 +44,7 @@ mysql = MySQL(app)
 # scaler_y = pickle.load(open('Model7/scaler_y.pkl', 'rb'))
 
 
-# mail
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'derugaud@gmail.com'
-app.config['MAIL_PASSWORD'] = 'zojykcipvdmawsud'
-mail = Mail(app)
+
 
 # model / Schema
 class RegisterForm(Form):
