@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="static/images/favicon.png" type="">
+
+    <title>Acoustic Sound Reduction System</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+
+    <!-- Fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome style -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/style.css" rel="stylesheet" />
+    <!-- Responsive style -->
+    <link href="static/css/responsive.css" rel="stylesheet" />
+
+    <!-- Add custom styles for disease section -->
+    <style>
+        /* Disease Section Styling */
+        .disease_section {
+            background-color: #f7f7f7;
+            padding: 60px 0;
+        }
+
+        .disease_grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .disease_item {
+            flex: 1 0 31%;
+            margin: 10px;
+        }
+
+        .box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+        }
+
+        .detail_box h5 {
+            padding: 10px;
+        }
+
+        .detail_box h5 a {
+            font-size: 18px;
+            color: #006400;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .detail_box h5 a:hover {
+            color: #007bff;
+        }
+
+        /* Main content area card styling */
+        main .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        main .card-header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        main .card-body p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Button Style */
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            padding: 20px;
+            color: #ffffff;
+            /* Text color for contrast */
+        }
+
+        .btn-primary {
+            background-color: #0e0e0e;
+            color: white;
+            border-color: #0e0e0e;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #343a40;
+        }
+    </style>
+</head>
+
+<body class="sub_page" id="severityCard">
+
+    <div class="hero_area">
+
+        <div class="hero_bg_box">
+            <img src="static/images/hero-bg.png" alt="">
+        </div>
+
+        <!-- Header section starts -->
+        <header class="header_section">
+            <div class="container">
+              <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="/">
+                  <span>
+                    Acoustic Sound Reduction System
+                  </span>
+                </a>
+      
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class=""> </span>
+                </button>
+      
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/form"> Make Prediction</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/info">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">logout</a>
+                      </li>
+                
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </header>
+        <!-- End header section -->
+    </div>
+
+    <!-- Main content area -->
+    <div class="container" >
+        <main>
+            <div class="card" >
+                <div class="card-header">
+                    <h1>Acoustic Sound Prediction Result</h1>
+                </div>
+                <div class="card-body ">
+                    <p><strong>Airflow Rate:</strong> {{ airflow_rate | round(2) }} m³/s</p>
+                    <p><strong>Fuel Flow Rate:</strong> {{ fuel_flowrate | round(2) }} kg/s</p>
+                    <p><strong>Air-Fuel Mixture:</strong> {{ air_fuel_mixture | round(2) }}</p>
+                    <p><strong>Pressure Sensor Data:</strong> {{ pressure_sensor_data | round(2) }} Pa</p>
+                    <p><strong>Sound Intensity:</strong> {{ sound_intensity | round(2) }} dB</p>
+                    <p><strong>Burner Position:</strong> {{ burner_position }}</p>
+                    <p><strong>Predicted Suppression Airflow Rate:</strong> {{ predicted_value | round(2) }} m³/s</p>
+                
+                    <!-- Optional Severity Range Table or other sections can be added here -->
+                
+                    <br />
+                    <a href="{{pdf_file_path}}" class="btn btn-primary mt-3">Download PDF Report</a>
+                    <a href="/form" class="btn btn-primary mt-3">Go Back</a>
+                    <a href="/" class="btn btn-primary mt-3">Home</a>
+                </div>
+                
+            </div>
+        </main>
+    </div>
+    <br><br><br><br>
+
+    <!-- Footer section -->
+    <footer class="footer_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 footer_col">
+                    <div class="footer_contact">
+                        <h4>Reach at...</h4>
+                        <div class="contact_link_box">
+                            <a href="https://www.google.com/maps/place/Ghansoli,+Navi+Mumbai,+Maharashtra/@19.1336,72.9874,15z">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span>Ghansoli</span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <span>Call +91 7039678397</span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span>dermasure@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="col-md-6 col-lg-3 footer_col">
+                    <div class="footer_detail">
+                        <h4>About</h4>
+                        <p>
+                            We are dedicated to revolutionizing equipment maintenance with cutting-edge AI technology. Our solutions help businesses optimize performance, reduce costs, and extend the lifespan of critical assets.                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 mx-auto footer_col">
+                    <div class="footer_link_box">
+                        <h4>Links</h4>
+                        <div class="footer_links">
+                            <a href="/">Home</a>
+                            <a href="/form">Make Prediction</a>
+                            <a href="/info">info</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 footer_col">
+                    <h4>Newsletter</h4>
+                    <form action="#">
+                        <!-- <input type="email" placeholder="Enter email" /> -->
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-info">
+                <p>
+                    &copy; <span id="displayYear"></span> All Rights Reserved By
+                    <a href="https://html.design/">DermaSure</a>
+                    <!-- &copy; <span id="displayYear"></span> Distributed By
+                    <a href="https://themewagon.com/">ThemeWagon</a> -->
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer section -->
+    
+    
+    <!-- jQuery -->
+    <script src="static/js/jquery-3.4.1.min.js"></script>
+    <!-- Popper.js -->
+    <script src="static/js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="static/js/bootstrap.js"></script>
+
+    <script>
+        // Function to set the background color based on severity level
+        function setSeverityBackground(severityNumerical) {
+            // Get the main content area element
+            const card = document.getElementById('severityCard');
+
+            // Define colors for each severity level
+            const colors = [
+                '#28a745', // 0: Negligible (Green)
+                '#6fbb6f', // 1: Minor
+                '#fdd835', // 2: Moderate (Yellow)
+                '#f29e24', // 3: Significant (Orange)
+                '#f37321', // 4: Serious
+                '#f03a17', // 5: Severe
+                '#dc3545'  // 6: Critical (Red)
+            ];
+           // card.style.backgroundColor = colors[severityNumerical] || '#ffffff'; // Default to white if out of range
+        }
+
+        const severityNumerical = parseInt(document.getElementById('severity_value').textContent.trim(), 10);
+
+        setSeverityBackground(severityNumerical);
+    </script>
+
+</body>
+
+</html>

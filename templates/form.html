@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Acoustic Sound Reduction System</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="static/images/favicon.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link href="static/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="static/css/style.css" rel="stylesheet" />
+    <link href="static/css/responsive.css" rel="stylesheet" />
+    <style>
+        .btn-theme-color {
+            background-color: #107355;
+            color: #ffffff;
+            border-color: #107355;
+        }
+        .predict_section {
+            position: absolute;
+            top: 54%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 35%;
+        }
+        .predict_section .box {
+            padding: 8px;
+            background-color: rgba(255, 255, 255, 0.36);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.83);
+            color: #252525;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero_area">
+        <div class="hero_bg_box">
+            <img src="static/images/heat.jpg" alt="">
+        </div>
+        <header class="header_section">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <a class="navbar-brand" href="/">
+                        <span>
+                            <img src="static/images/logo.png" class="img-fluid" style="max-width: 50px; height: auto;">
+                            Acoustic Sound Reduction System
+                        </span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                        <span class=""> </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/form">Make Prediction</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/analysis">Analysis</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/info">Info</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <section class="predict_section layout_padding">
+            <div class="container">
+                <div class="heading_container heading_center text-white">
+                    <h2 class="display-4">Predict Suppression Airflow Rate</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="box">
+                            <form id="prediction-form" class="container" method="post" action="/predict">
+                                <!-- Input Fields with Correct Name Attributes -->
+                                <div class="form-group mb-2">
+                                    <label for="Airflow_Rate">Airflow Rate (m³/s):</label>
+                                    <input type="text" id="Airflow_Rate" name="Airflow_Rate" class="form-control form-control-sm" placeholder="Enter Airflow Rate" required>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Fuel_Flowrate">Fuel Flow Rate (kg/s):</label>
+                                    <input type="text" id="Fuel_Flowrate" name="Fuel_Flowrate" class="form-control form-control-sm" placeholder="Enter Fuel Flow Rate" required>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Air_Fuel_Mixture">Air-Fuel Mixture:</label>
+                                    <input type="text" id="Air_Fuel_Mixture" name="Air_Fuel_Mixture" class="form-control form-control-sm" placeholder="Enter Air-Fuel Mixture" required>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Pressure_Sensor_Data">Pressure Sensor Data (Pa):</label>
+                                    <input type="text" id="Pressure_Sensor_Data" name="Pressure_Sensor_Data" class="form-control form-control-sm" placeholder="Enter Pressure Sensor Data" required>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Sound_Intensity">Sound Intensity (dB):</label>
+                                    <input type="text" id="Sound_Intensity" name="Sound_Intensity" class="form-control form-control-sm" placeholder="Enter Sound Intensity" required>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="Burner_Position">Burner Position (L/n):</label>
+                                    <input type="text" id="Burner_Position" name="Burner_Position" class="form-control form-control-sm" placeholder="Enter Burner Position (e.g., L/2)" required>
+                                </div>
+                                <!-- Submit Button -->
+                                <div class="d-flex justify-content-center">
+                                    <input type="submit" value="Predict" class="btn btn-primary btn-theme-color mx-1">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="footer_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 footer_col">
+                    <div class="footer_contact">
+                        <h4>Reach at...</h4>
+                        <div class="contact_link_box">
+                            <a href="https://www.google.com/maps/place/Ghansoli,+Navi+Mumbai,+Maharashtra/">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i> Ghansoli
+                            </a>
+                            <a href="tel:+917039678397"><i class="fa fa-phone" aria-hidden="true"></i> Call +91 7039678397</a>
+                            <a href="mailto:dermasure@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> dermasure@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 footer_col">
+                    <div class="footer_detail">
+                        <h4>About</h4>
+                        <p>We are dedicated to revolutionizing equipment maintenance with predictive technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Links -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+</body>
+</html>
